@@ -1,22 +1,27 @@
- // method calling with arguments
+ // method calling with arguments in realtime project level
+ // In realtime projects methods are Accepecting objects as arguments
  public class Test {
 	public static void main(String[] args){      
-	Test t= new Test();
-	 t.sampleMethod(12,'z',"alam");   //sampleMethod is accepting arguments of type int, char and String
-	 Test.sampleStaticMethod((byte)5,60.5f, 30.4);    //sampleStaticMethod is accepting arguments of type byte, float, double
-	 // if we pass like Test.sampleStaticMethod((5,60.5f); -> it will through error like  incompatible types: possible lossy conversion from int to byte
-	 //The Java language requires you to use a (byte) cast when you assign an int-valued expression to a byte.
-	  }
-	  void sampleMethod(int a,char ch,String s){   
-	  System.out.println("Hi instance method with arguments");
-      System.out.println(a);
-      System.out.println(ch);
-      System.out.println(s);	  
+		 //to call sampleInstanceMethod we need object of class Test
+         Test t= new Test();
+         //to call sampleInstanceMethod also we need objects of class Employee and X 
+         Employee employee= new Employee();
+         X x= new X();
+         t.sampleInstanceMethod(employee,x);
+        //to call sampleStaticMethod we do not need object but we need objects of class Student and Y
+        Student student= new Student();
+        Y y= new Y();
+        Test.sampleStaticMethod(student,y);		
 	}
-	static void sampleStaticMethod(byte b, float f,double d){
-		System.out.println("Hi static method with arguments");
-       System.out.println(b);
-       System.out.println(f);
-       System.out.println(d);	   
-	}		
+		void sampleInstanceMethod(Employee e,X x){
+			System.out.println("Hi Employee and x objects");
+		}
+		static void sampleStaticMethod(Student s,Y y){
+			System.out.println("Hi Student and y objects");
+		}
 }
+
+class Employee{}
+class Student{}
+class X{}
+class Y{}

@@ -1,5 +1,5 @@
  // method calling with arguments(local variable) v/s instance variable
-//local variables having first priority 
+//local variables having first priority to call instance variables we need to use 'this' keyword 
   public class Test {
 	 int a=10,b=20;    //instance variable
 	public static void main(String[] args){   
@@ -9,7 +9,7 @@
 	}
 	void add(int a, int b){     //a and b are called local variable
 	System.out.println(a+b);   //whenever there is common name in variables local variables get first priority
-	System.out.println(a+b);
+	System.out.println(this.a+this.b);  //to call instance variables:- use 'this' keyword
 	}
 	
 }

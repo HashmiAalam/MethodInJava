@@ -1,27 +1,19 @@
-// method return type
+// method return type is current class than we can use 'this' keyword
 public class Test {
-	
 	public static void main(String[] args){   
 	Test t= new Test();
-	t.sampleVoidMethod(10);  //this method do not return value
-	int a=t.sampleIntMethod();   //this method return int value and we can hold return value
-	System.out.println(a);
-	//calling static method
-	float f=Test.sampleFloatMethod();
-	System.out.println(f);
+	t.sampleTestMethod1();
+    Test t1=t.sampleTestMethod2();
 	Employee e=t.sampleEmployeeMethod();
-	
 	}
-	void sampleVoidMethod(int a){
-		System.out.println("I am in sampleMethod having return type void and int argument a = "+a);
+	Test sampleTestMethod1(){
+		System.out.println("I am in sampleTestMethod having return type Test");
+		return new Test();    //this method returns current class object
 	}
-	int sampleIntMethod(){
-		System.out.println("I am in sampleIntMethod having return type int");
-		return 10;
-	}
-	static float sampleFloatMethod(){
-	System.out.println("I am in sampleFloatMethod having return type float");
-		return 10.5f;
+	//or
+	Test sampleTestMethod2(){
+		System.out.println("I am in sampleTestMethod having return type Test");
+		return this;  //'this' keyword represents current class object
 	}
     Employee sampleEmployeeMethod(){
     System.out.println("I am in sampleEmployeeMethod having return type Employee");

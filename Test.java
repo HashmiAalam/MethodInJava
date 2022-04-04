@@ -1,16 +1,31 @@
- // method calling with arguments(local variable) v/s instance variable
-//local variables having first priority to call instance variables we need to use 'this' keyword 
-  public class Test {
-	 int a=10,b=20;    //instance variable
-	public static void main(String[] args){   
-	//to call add method we need object
-	Test t=new Test();
-	t.add(100,200);    //we need to pass arguments to call add method
-	}
-	void add(int a, int b){     //a and b are called local variable
-	System.out.println(a+b);   //whenever there is common name in variables local variables get first priority
-	System.out.println(this.a+this.b);  //to call instance variables:- use 'this' keyword
-	}
+// method return type
+public class Test {
 	
+	public static void main(String[] args){   
+	Test t= new Test();
+	t.sampleVoidMethod(10);  //this method do not return value
+	int a=t.sampleIntMethod();   //this method return int value and we can hold return value
+	System.out.println(a);
+	//calling static method
+	float f=Test.sampleFloatMethod();
+	System.out.println(f);
+	Employee e=t.sampleEmployeeMethod();
+	
+	}
+	void sampleVoidMethod(int a){
+		System.out.println("I am in sampleMethod having return type void and int argument a = "+a);
+	}
+	int sampleIntMethod(){
+		System.out.println("I am in sampleIntMethod having return type int");
+		return 10;
+	}
+	static float sampleFloatMethod(){
+	System.out.println("I am in sampleFloatMethod having return type float");
+		return 10.5f;
+	}
+    Employee sampleEmployeeMethod(){
+    System.out.println("I am in sampleEmployeeMethod having return type Employee");
+		return new Employee();
+	}		
 }
-
+class Employee{}

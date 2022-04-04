@@ -1,23 +1,13 @@
-// method return type is current class than we can use 'this' keyword
+// method return type is interge/number:- first priority goes to local variable
 public class Test {
+	int a=100;
 	public static void main(String[] args){   
 	Test t= new Test();
-	t.sampleTestMethod1();
-    Test t1=t.sampleTestMethod2();
-	Employee e=t.sampleEmployeeMethod();
+	int a=t.sampleMethod(10);
+	System.out.println("method return value= "+a);
 	}
-	Test sampleTestMethod1(){
-		System.out.println("I am in sampleTestMethod having return type Test");
-		return new Test();    //this method returns current class object
+	int sampleMethod(int a){
+		System.out.println("This is a sampleMethod");
+		return a;
 	}
-	//or
-	Test sampleTestMethod2(){
-		System.out.println("I am in sampleTestMethod having return type Test");
-		return this;  //'this' keyword represents current class object
-	}
-    Employee sampleEmployeeMethod(){
-    System.out.println("I am in sampleEmployeeMethod having return type Employee");
-		return new Employee();
-	}		
 }
-class Employee{}
